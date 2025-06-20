@@ -1,0 +1,1 @@
+# Here will be targets with complicated commands inside to simplify running some helpful scripts (for example tests)
