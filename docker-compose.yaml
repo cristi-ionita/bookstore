@@ -1,0 +1,25 @@
+services:
+  book_store_api:
+    build:
+      context: .
+      dockerfile: ./book_store/docker/Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./book_store:/app
+    depends_on:
+      - "db"
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: bookstore
+    ports:
+      - "5432:5432"
+    volumes:
+      - .db_data:/var/lib/postgresql/data
+
+networks:
+  default:
+    name: bookstore_network
