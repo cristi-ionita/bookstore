@@ -17,7 +17,7 @@
 4. Make sure that you have make installed in system to be able run targets
 5. Run target:
 ```
-make install_pre_commit
+make install_precommit
 ```
 6. Make sure you are in root folder of the project
 7. Activate environment
