@@ -17,12 +17,13 @@ help:
 
 run_locally: ## Run the application
 	@echo "$(COLOR_GREEN)Running the application...$(COLOR_RESET)"
-	# here should be added instructions to run the app locally with db
-	docker compose up --build db
+	docker compose up --build db -d
+	poetry run uvicorn book_store.app:app --host 127.0.0.1 --port 8000 --reload
+	
 
 run_in_docker: ## Run the application in Docker
 	@echo "$(COLOR_GREEN)Running the application in Docker...$(COLOR_RESET)"
-	# here should be added instructions to run the app in Docker
+	docker compose up --build
 
 install_precommit: ## Install pre-commit hooks
 	@echo "$(COLOR_GREEN)Installing pre-commit hooks...$(COLOR_RESET)"
