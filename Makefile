@@ -23,3 +23,7 @@ run_locally: ## Run the application
 run_in_docker: ## Run the application in Docker
 	@echo "$(COLOR_GREEN)Running the application in Docker...$(COLOR_RESET)"
 	# here should be added instructions to run the app in Docker
+
+install_precommit: ## Install pre-commit hooks
+	@echo "$(COLOR_GREEN)Installing pre-commit hooks...$(COLOR_RESET)"
+	poetry run pre-commit install
