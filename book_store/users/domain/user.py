@@ -3,13 +3,27 @@ from typing import Optional
 from sqlalchemy import Table, Column, Integer, String
 from .database import metadata
 
+""" Modele Pydantic """
 
-class User(BaseModel):
-    id: Optional[int] = Field(default=None, description="Unique identifier for the user")
-    username: str = Field(..., min_length=3, max_length=50, description="Username of the user")
-    email: EmailStr = Field(..., description="User's email address")
-    password: str = Field(..., min_length=6, description="Hashed password of the user")
+class UserBase(BaseModel):
+    username: str = Field(..., min_length=3, max_length=50)
+    email: EmailStr
 
+class UserCreate(UserBase):
+    password: str = Field(..., min_length=6)
+
+class UserUpdate(BaseModel):
+    username: Optional[str] = None
+    email: Optional[EmailStr] = None
+    password: Optional[str] = None
+
+class User(UserBase):
+    id: Optional[int] = None
+
+    class Config:
+        orm_mode = True
+
+""" Tabela SQLAlchemy """
 
 users = Table(
     "users",
