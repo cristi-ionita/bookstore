@@ -38,6 +38,16 @@ packages = [
 
 [tool.black]
 line-length = 120
+target-version = ["py311"]
+exclude = '''
+/(
+    \.git
+  | \.venv
+  | build
+  | dist
+)/
+'''
 
 [tool.flake8]
 max-line-length = 120
+extend-ignore = ["E203", "W503"]

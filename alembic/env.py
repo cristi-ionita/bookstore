@@ -6,7 +6,6 @@ from sqlalchemy import pool
 from alembic import context
 from book_store.core.database import metadata
 
-
 target_metadata = metadata
 
 # this is the Alembic Config object, which provides

@@ -5,6 +5,8 @@ from typing import List, Optional
 from sqlalchemy import insert, select, update, delete
 
 
+# TODO: all of the methods relates to infrastructure layer but not to application layer.
+# this functions should be moved into infrastructure/repository.py module.
 def create_user(db: Session, user_create: UserCreate) -> User:
     user_dict = user_create.dict()
     stmt = insert(users).values(**user_dict)
@@ -28,8 +30,7 @@ def get_user_by_id(db: Session, user_id: int) -> Optional[User]:
     return None
 
 
-def update_user(db: Session, user_id: int, user_update:
-                UserUpdate) -> Optional[User]:
+def update_user(db: Session, user_id: int, user_update: UserUpdate) -> Optional[User]:
     existing_user = get_user_by_id(db, user_id)
     if not existing_user:
         return None

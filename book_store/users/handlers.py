@@ -11,7 +11,8 @@ from book_store.users.services import (
 from book_store.users.user_models import User, UserCreate, UserUpdate, MessageResponse
 from book_store.core.database import get_db
 
-
+# TODO: this module looks like part of application layer logic. lets move into application/ folder.
+# TODO: I think will be better not create separate router in every module. lets just import it from somewhere.
 router = APIRouter()
 
 
@@ -34,9 +35,7 @@ def read_user(user_id: int, db: Session = Depends(get_db)):
 
 
 @router.put("/{user_id}", response_model=User)
-def update_user_endpoint(
-    user_id: int, user_update: UserUpdate, db: Session = Depends(get_db)
-):
+def update_user_endpoint(user_id: int, user_update: UserUpdate, db: Session = Depends(get_db)):
     updated_user = update_user(db, user_id, user_update)
     if not updated_user:
         raise HTTPException(status_code=404, detail="User not found")

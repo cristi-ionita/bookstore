@@ -2,6 +2,7 @@ from pydantic import BaseModel, EmailStr, Field
 from typing import Optional
 
 
+# TODO: looks like application layer logic. Lets move to applicatoin/validators/
 class UserBase(BaseModel):
     """Datele de bază pentru un utilizator (fără parolă)"""
 

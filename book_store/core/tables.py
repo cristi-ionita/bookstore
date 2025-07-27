@@ -1,6 +1,7 @@
 from sqlalchemy import Table, Column, Integer, String
 from .database import metadata
 
+# TODO: not the best idea hold all tables in one file since we could have at start point really big applications (in my practice it was even 100+ tables for monolith)
 users = Table(
     "users",
     metadata,

@@ -5,6 +5,8 @@ from book_store.core.tables import books
 from book_store.books.book_models import Book, BookCreate, BookUpdate
 
 
+# TODO: all of the methods relates to infrastructure layer but not to application layer.
+# this functions should be moved into infrastructure/repository.py module.
 def create_book(db: Session, book_create: BookCreate) -> Book:
     book_dict = book_create.dict()
     stmt = insert(books).values(**book_dict)
@@ -28,8 +30,7 @@ def get_book_by_id(db: Session, book_id: int) -> Optional[Book]:
     return None
 
 
-def update_book(db: Session, book_id: int, book_update:
-                BookUpdate) -> Optional[Book]:
+def update_book(db: Session, book_id: int, book_update: BookUpdate) -> Optional[Book]:
     existing_book = get_book_by_id(db, book_id)
     if not existing_book:
         return None

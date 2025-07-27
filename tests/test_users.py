@@ -6,6 +6,7 @@ from book_store.core.database import engine, Base
 client = TestClient(app)
 
 
+# TODO: lets move fixtures into the conftest module like pytest propagates
 @pytest.fixture(scope="module", autouse=True)
 def setup_db():
     # Creează tabelele înainte de teste
