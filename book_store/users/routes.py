@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from book_store.users.application.handlers import router as users_router
+from book_store.users.handlers import router as user_router
 
 router = APIRouter()
-router.include_router(users_router)
+router.include_router(user_router)

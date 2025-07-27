@@ -1,22 +1,9 @@
 from fastapi import FastAPI
-from book_store.users.routes import router as users_routes
-from book_store.users.domain.database import database
-
-app = FastAPI(
-    title="Book Store API",
-    description="API pentru gestionarea utilizatorilor și cărților",
-    version="1.0.0"
-)
+from book_store.books.routes import router as books_router
+from book_store.users.routes import router as users_router
 
 
-@app.on_event("startup")
-async def startup():
-    await database.connect()
+app = FastAPI(title="BookStore")
 
-
-@app.on_event("shutdown")
-async def shutdown():
-    await database.disconnect()
-
-
-app.include_router(users_routes, prefix="/api")
+app.include_router(users_router, prefix="/api/users")
+app.include_router(books_router, prefix="/api/books")

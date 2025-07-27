@@ -1,3 +1,87 @@
-.*/
+# Byte-compiled / optimized / DLL files
 __pycache__/
-__pytest_cache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Alembic
+alembic/versions/*.pyc
+alembic/__pycache__/
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+
+# Docker
+*.env
+docker-compose.override.yml
+docker-compose.*.yml
+
+# Local env files
+.env
+.env.*
+
+# Logs
+*.log
+
+# SQLite database files (if any)
+*.db
+*.sqlite3
+
+# MacOS
+.DS_Store
+
+# Virtual environments
+venv/
+.env/
+bookstore-py3.12/   # Your specific virtualenv folder, adjust if different
+
+# Python compiled files
+*.pyo
