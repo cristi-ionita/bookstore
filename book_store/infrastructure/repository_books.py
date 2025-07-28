@@ -1,14 +1,12 @@
 from typing import List, Optional
 from sqlalchemy.orm import Session
 from sqlalchemy import insert, select, update, delete
-from book_store.core.tables import books
-from book_store.books.book_models import Book, BookCreate, BookUpdate
+from book_store.core.tables.book_tables import books
+from book_store.models.book_models import Book, BookCreate, BookUpdate
 
 
-# TODO: all of the methods relates to infrastructure layer but not to application layer.
-# this functions should be moved into infrastructure/repository.py module.
 def create_book(db: Session, book_create: BookCreate) -> Book:
-    book_dict = book_create.dict()
+    book_dict = book_dict = book_create.model_dump()
     stmt = insert(books).values(**book_dict)
     result = db.execute(stmt)
     book_id = result.inserted_primary_key[0]
@@ -34,7 +32,7 @@ def update_book(db: Session, book_id: int, book_update: BookUpdate) -> Optional[
     existing_book = get_book_by_id(db, book_id)
     if not existing_book:
         return None
-    update_data = book_update.dict(exclude_unset=True)
+    update_data = book_update.model_dump(exclude_unset=True)
     stmt = update(books).where(books.c.id == book_id).values(**update_data)
     db.execute(stmt)
     db.commit()
