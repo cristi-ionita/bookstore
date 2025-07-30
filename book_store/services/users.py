@@ -1,13 +1,9 @@
 from typing import List, Optional
+
 from sqlalchemy.orm import Session
+
+from book_store.infrastructure.repository_users import create_user, delete_user, get_user_by_id, get_users, update_user
 from book_store.models.user_models import User, UserCreate, UserUpdate
-from book_store.infrastructure.repository_users import (
-    create_user,
-    get_users,
-    get_user_by_id,
-    update_user,
-    delete_user,
-)
 
 
 def add_new_user(db: Session, user_create: UserCreate) -> User:

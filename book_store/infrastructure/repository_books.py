@@ -1,6 +1,8 @@
 from typing import List, Optional
+
+from sqlalchemy import delete, insert, select, update
 from sqlalchemy.orm import Session
-from sqlalchemy import insert, select, update, delete
+
 from book_store.core.tables.book_tables import books
 from book_store.models.book_models import Book, BookCreate, BookUpdate
 

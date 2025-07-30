@@ -1,13 +1,9 @@
 from typing import List, Optional
+
 from sqlalchemy.orm import Session
-from book_store.models.book_models import BookCreate, BookUpdate, Book
-from book_store.infrastructure.repository_books import (
-    create_book,
-    get_books,
-    get_book_by_id,
-    update_book,
-    delete_book,
-)
+
+from book_store.infrastructure.repository_books import create_book, delete_book, get_book_by_id, get_books, update_book
+from book_store.models.book_models import Book, BookCreate, BookUpdate
 
 
 def add_new_book(db: Session, book_create: BookCreate) -> Book:

@@ -1,5 +1,6 @@
-from sqlalchemy import create_engine, MetaData
+from sqlalchemy import MetaData, create_engine
 from sqlalchemy.orm import declarative_base, sessionmaker
+
 from book_store.core.config import settings
 
 engine = create_engine(settings.database_url, echo=True)

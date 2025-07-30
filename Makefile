@@ -35,3 +35,5 @@ test:
 
 black:
 	black .
+	isort .
+

@@ -1,4 +1,5 @@
-from sqlalchemy import Table, Column, Integer, String
+from sqlalchemy import Column, Integer, String, Table
+
 from book_store.core.database import metadata
 
 books = Table(

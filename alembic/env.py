@@ -1,11 +1,13 @@
+import os
+import sys
 from logging.config import fileConfig
-
-from sqlalchemy import engine_from_config
-from sqlalchemy import pool
-
+from sqlalchemy import engine_from_config, pool
+import book_store.core.tables.book_tables  # noqa: F401
+import book_store.core.tables.user_tables  # noqa: F401
 from alembic import context
 from book_store.core.database import metadata
 
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 target_metadata = metadata
 
 # this is the Alembic Config object, which provides

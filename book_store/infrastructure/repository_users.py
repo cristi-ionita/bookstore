@@ -1,6 +1,8 @@
 from typing import List, Optional
-from sqlalchemy import select, delete
+
+from sqlalchemy import delete, select
 from sqlalchemy.orm import Session
+
 from book_store.core.tables.user_tables import users
 from book_store.models.user_models import User, UserCreate, UserUpdate
 

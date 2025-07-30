@@ -1,15 +1,11 @@
-from fastapi import APIRouter, HTTPException, Depends
 from typing import List
+
+from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from book_store.services.users import (
-    add_new_user,
-    list_all_users,
-    get_user,
-    modify_user,
-    remove_user,
-)
-from book_store.models.user_models import User, UserCreate, UserUpdate, MessageResponse
+
 from book_store.core.database import get_session
+from book_store.models.user_models import MessageResponse, User, UserCreate, UserUpdate
+from book_store.services.users import add_new_user, get_user, list_all_users, modify_user, remove_user
 
 router = APIRouter()
 

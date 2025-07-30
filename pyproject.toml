@@ -31,6 +31,7 @@ pre-commit = "^4.2.0"
 mypy = "^1.17.0"
 types-ujson = "^5.10.0.20250326"
 types-requests = "^2.32.4.20250611"
+isort = "^6.0.1"
 
 [tool.poetry]
 packages = [

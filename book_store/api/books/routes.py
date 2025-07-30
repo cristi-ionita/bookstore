@@ -1,16 +1,11 @@
-from fastapi import APIRouter, Depends, HTTPException
-from sqlalchemy.orm import Session
 from typing import List
 
-from book_store.services.books import (
-    add_new_book,
-    list_all_books,
-    get_book,
-    modify_book,
-    remove_book,
-)
-from book_store.models.book_models import Book, BookCreate, BookUpdate
+from fastapi import APIRouter, Depends, HTTPException
+from sqlalchemy.orm import Session
+
 from book_store.core.database import get_session
+from book_store.models.book_models import Book, BookCreate, BookUpdate
+from book_store.services.books import add_new_book, get_book, list_all_books, modify_book, remove_book
 
 router = APIRouter(tags=["books"])
 
