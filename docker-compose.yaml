@@ -11,7 +11,7 @@ services:
     depends_on:
       - db
     environment:
-      DATABASE_URL: postgresql://postgres:postgres@db:5432/bookstore
+      DATABASE_URL: postgresql://postgres:postgres@db:5432/bookstore # TODO: does not seems like should be here
     command: >
       uvicorn book_store.app:app --host 0.0.0.0 --port 8000 --reload
 
@@ -23,7 +23,7 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: bookstore
     ports:
-      - "5432:5432"
+      - "5434:5432"
     volumes:
       - .db_data:/var/lib/postgresql/data
 
