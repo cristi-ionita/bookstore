@@ -1,4 +1,6 @@
 def test_book_crud(client):
+    # TODO: what exactly you are trying to test here? CRUD operations on books?
+    # if so lets split this into multiple tests
     new_book = {"title": "1984", "author": "George Orwell", "year": 1949}
     response = client.post("/api/books/", json=new_book)
     assert response.status_code == 200, f"Create failed: {response.text}"

@@ -7,6 +7,9 @@ from book_store.core.tables.user_tables import users
 from book_store.models.user_models import User, UserCreate, UserUpdate
 
 
+# Lets create AbstractRepository and BaseRepository classes to handle common CRUD operations to avoid code duplication
+# and boilerplate code.
+# TODO: lets move these methods into some kind of service class UsersRepository
 def create_user(db: Session, user_create: UserCreate) -> User:
     insert_stmt = users.insert().values(
         username=user_create.username,

@@ -10,6 +10,7 @@ from book_store.services.users import add_new_user, get_user, list_all_users, mo
 router = APIRouter()
 
 
+# TODO: lets move handlers into the class and use like methods of the class
 @router.post("/", response_model=User)
 def create_user_endpoint(user_data: UserCreate, db: Session = Depends(get_session)):
     return add_new_user(db, user_data)
@@ -24,7 +25,9 @@ def read_users(db: Session = Depends(get_session)):
 def read_user(user_id: int, db: Session = Depends(get_session)):
     user = get_user(db, user_id)
     if not user:
-        raise HTTPException(status_code=404, detail="User not found")
+        raise HTTPException(
+            status_code=404, detail="User not found"
+        )  # TODO: lets create custom exception for this instead of using HTTPException directly
     return user
 
 
@@ -32,7 +35,9 @@ def read_user(user_id: int, db: Session = Depends(get_session)):
 def update_user_endpoint(user_id: int, user_update: UserUpdate, db: Session = Depends(get_session)):
     updated_user = modify_user(db, user_id, user_update)
     if not updated_user:
-        raise HTTPException(status_code=404, detail="User not found")
+        raise HTTPException(
+            status_code=404, detail="User not found"
+        )  # TODO: lets create custom exception for this instead of using HTTPException directly
     return updated_user
 
 
@@ -40,5 +45,7 @@ def update_user_endpoint(user_id: int, user_update: UserUpdate, db: Session = De
 def delete_user_endpoint(user_id: int, db: Session = Depends(get_session)):
     success = remove_user(db, user_id)
     if not success:
-        raise HTTPException(status_code=404, detail="User not found")
+        raise HTTPException(
+            status_code=404, detail="User not found"
+        )  # TODO: lets create custom exception for this instead of using HTTPException directly
     return {"detail": "User deleted"}

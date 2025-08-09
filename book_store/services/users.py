@@ -6,6 +6,7 @@ from book_store.infrastructure.repository_users import create_user, delete_user,
 from book_store.models.user_models import User, UserCreate, UserUpdate
 
 
+# TODO: lets move this methods into the some kind of service class UsersService
 def add_new_user(db: Session, user_create: UserCreate) -> User:
     return create_user(db, user_create)
 

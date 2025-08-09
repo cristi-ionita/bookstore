@@ -1,4 +1,9 @@
 def test_user_crud(client):
+    # TODO: what exactly you are trying to test here? CRUD operations on users?
+    # if so lets split this into multiple tests
+    # TODO: maybe we should mark this test somehow?
+    # TODO: maybe we will move test data into some fixtures? F
+    # or example new_user fixture of factory which load data from csv file?
     new_user = {
         "username": "testuser",
         "email": "testuser@example.com",

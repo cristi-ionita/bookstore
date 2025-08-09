@@ -7,6 +7,7 @@ from book_store.core.tables.book_tables import books
 from book_store.models.book_models import Book, BookCreate, BookUpdate
 
 
+# TODO: lets move these methods into some kind of service class BooksRepository
 def create_book(db: Session, book_create: BookCreate) -> Book:
     book_dict = book_dict = book_create.model_dump()
     stmt = insert(books).values(**book_dict)

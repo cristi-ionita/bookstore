@@ -6,6 +6,7 @@ from book_store.infrastructure.repository_books import create_book, delete_book,
 from book_store.models.book_models import Book, BookCreate, BookUpdate
 
 
+# TODO: lets move this methods into the some kind of service class BooksService
 def add_new_book(db: Session, book_create: BookCreate) -> Book:
     return create_book(db, book_create)
 
